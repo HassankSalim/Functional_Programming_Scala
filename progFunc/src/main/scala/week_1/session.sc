@@ -4,7 +4,7 @@ object session
     def abs(x: Double): Double = if(x < 0) -x else x
 
     def isGoodEnough(guess: Double, x: Double): Boolean =
-        abs(guess * guess - x) < 0.001
+        abs(guess * guess - x) / x < 0.001
 
     def sqrtIter(guess: Double, x: Double): Double =
         if(isGoodEnough(guess, x)) guess
@@ -17,4 +17,6 @@ object session
 
     sqrt(2)
     sqrt(4)
+    sqrt(1e-60)
+    sqrt(1e60)
 }
