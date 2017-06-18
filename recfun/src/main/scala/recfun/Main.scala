@@ -1,4 +1,5 @@
 package recfun
+import scala.collection.mutable.{ListBuffer, Map}
 
 object Main {
   def main(args: Array[String]) {
@@ -8,9 +9,7 @@ object Main {
         print(pascal(col, row) + " ")
       println()
     }
-
-    println(balance("(()(())".toList))
-    
+    println(countChange(5,List(1,2,3)))
   }
 
   /**
@@ -35,33 +34,70 @@ object Main {
           if (char.head == '(' || char.head == ')') char else moveForward(char.tail)
       }
 
-      var tempChar = moveForward(chars)
+      var charList = moveForward(chars)
 
-      def checkBalance(): Boolean =
+      def checkBal(isBal: Boolean):Boolean =
       {
+        var currentlyBal = true
 
-        var isBalanced = true
-        if(tempChar.head == '(') { isBalanced = false; tempChar = moveForward(tempChar.tail) }
-        if(tempChar.head == '(' && !isBalanced) checkBalance()
-        if(tempChar.head == ')' && isBalanced) return false
-        if (tempChar.head == ')' && !isBalanced)
+        if(charList.head == '(')
         {
-          isBalanced = true
-          tempChar = moveForward(tempChar.tail)
+          currentlyBal = false
+          charList = moveForward(charList.tail)
+          currentlyBal  = checkBal(false)
         }
-        if(tempChar.head == '-')
-          isBalanced
+        if(charList.head == ')' && !isBal)
+        {
+          charList = moveForward(charList.tail)
+          true
+        }
+        else if(charList.head == ')' && isBal) false
+        else if(charList.head == '-') currentlyBal && isBal
         else
         {
-          tempChar = moveForward(tempChar)
-          checkBalance()
+          charList = moveForward(charList)
+          checkBal(isBal)
         }
       }
-      checkBalance()
+
+      checkBal(true)
     }
   
   /**
    * Exercise 3
    */
-    def countChange(money: Int, coins: List[Int]): Int = ???
+  def countChange(money: Int, coins: List[Int]): Int = {
+
+    def repeat(lastMaxCoin_total_coll: List[(Int, Int)], count: Int): Int = {
+
+      if (lastMaxCoin_total_coll.isEmpty)
+        count
+      else
+      {
+
+        val coinTable = ListBuffer[(Int, Int)]()
+        var newCount = count
+
+        for ((lastMaxCoin, total) <- lastMaxCoin_total_coll)
+        {
+          if (total < money)
+          {
+            for (c <- coins)
+            {
+              if (c >= lastMaxCoin)
+              {
+                val e = (c, total + c)
+                coinTable += e
+              }
+            }
+          } else if (total == money)
+            newCount += 1
+        }
+        repeat(coinTable.toList, newCount)
+      }
+    }
+
+    val b = coins.map { c => (c, c) }
+    repeat(b, 0)
   }
+}
