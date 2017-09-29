@@ -5,9 +5,12 @@ object rationals
     val z = new Rational(3, 2)
 
 
-    x.sub(y).sub(z)
-    y.add(y)
-    x.less(y)
+    x - y - z
+    x + y
+    x < y
+    x.max(y)
+    x max y // infix operator
+
 
     class Rational(x:Int, y: Int)
     {
@@ -22,11 +25,11 @@ object rationals
         def numer = x
         def denom = y
 
-        def add(secRational : Rational) =
+        def + (secRational : Rational) =
             new Rational(numer * secRational.denom + denom * secRational.numer, denom * secRational.denom)
 
         def max(secRational : Rational) =
-            if(this.less(secRational)) secRational
+            if(this < secRational) secRational
             else this
 
         override def toString() =
@@ -35,11 +38,12 @@ object rationals
                 numer/g + "/" + denom/g
             }
 
-        def less(secRational : Rational) = numer * secRational.denom < denom * secRational.numer
+        def < (secRational : Rational) = numer * secRational.denom < denom * secRational.numer
 
-        def neg: Rational =  new Rational(-numer, denom)
+        def unary_- : Rational =  new Rational(-numer, denom)
 
-        def sub(y: Rational) = add(y.neg)
+
+        def - (y: Rational) = this + -y
 
         def mul(secRational : Rational) =
             new Rational(numer * secRational.numer, denom * secRational.denom)
