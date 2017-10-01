@@ -77,6 +77,8 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val s = union(s1, s2)
+    val t = union(s, s3)
   }
 
   /**
@@ -103,7 +105,6 @@ class FunSetSuite extends FunSuite {
 
   test("union contains all elements of each set") {
     new TestSets {
-      val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
       assert(contains(s, 2), "Union 2")
       assert(!contains(s, 3), "Union 3")
@@ -112,7 +113,6 @@ class FunSetSuite extends FunSuite {
 
   test("forall testcase"){
     new TestSets {
-      val s = union(s1, s2)
       assert(!forall(s, i => i > 2), "forall 1")
       assert(!forall(s, i => i > 1), "forall 2")
       assert(forall(s, i => i > 0), "forall 3")
@@ -120,13 +120,23 @@ class FunSetSuite extends FunSuite {
   }
   test("exists testcase"){
     new TestSets {
-      val s = union(s1, s2)
-      val t = union(s, s3)
       assert(exists(t, i => i > 2), "exists 2")
       assert(!exists(t, i => i > 3), "exists 3")
       assert(exists(t, i => i > 1), "exists 1")
       assert(exists(t, i => i > 0), "exists 0")
     }
   }
+
+  test("map testcase"){
+    new TestSets {
+      val m = map(t, x => x * 2)
+      printSet(m)
+      assert(contains(m, 2), "exists 2")
+      assert(!contains(m, 3), "map 3")
+      assert(contains(m, 4), "exists 1")
+      assert(contains(m, 6), "exists 0")
+    }
+  }
+
 
 }
