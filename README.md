@@ -33,6 +33,11 @@ Hurdles i faced :sweat_smile:
 
 - Week 2
   - Evaluation of class in scala worksheet is different in Intellji and Eclipse [Soln For Intellji users](https://stackoverflow.com/questions/33630274/intellij-worksheet-and-classes-defined-in-it)
+  - Assignment hints : Consider Set as functions, for example union(s, t) returns a functions
+  - If nothing works out check these links
+    * [stackoverflow](https://stackoverflow.com/questions/19204631/union-of-two-sets-in-scala)
+    * I prefer my exists functions over the one implemented here [Github](https://github.com/erlinis/scala-progfun-funsets/blob/master/src/main/scala/funsets/FunSets.scala)
+
 
 > **Note:**
 > - This repo is to document my progress. It is intended help anyone with similar difficults and not intended to share answer.
