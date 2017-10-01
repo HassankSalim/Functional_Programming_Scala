@@ -56,18 +56,20 @@ object FunSets {
    */
     def forall(s: Set, p: Int => Boolean): Boolean = {
     def iter(a: Int): Boolean = {
-      if (???) ???
-      else if (???) ???
-      else iter(???)
+      if (contains(s, a) && p(a)) inforall(a+1)
+      else if (contains(s, a)) false
+      else inforall(a+1)
     }
-    iter(???)
+    def inforall(a: Int): Boolean = if(a < bound) iter(a) else true
+    iter(-bound)
   }
   
   /**
    * Returns whether there exists a bounded integer within `s`
    * that satisfies `p`.
    */
-    def exists(s: Set, p: Int => Boolean): Boolean = ???
+    def exists(s: Set, p: Int => Boolean): Boolean = if(!forall(s, i => !p(i))) true else false
+
   
   /**
    * Returns a set transformed by applying `f` to each element of `s`.

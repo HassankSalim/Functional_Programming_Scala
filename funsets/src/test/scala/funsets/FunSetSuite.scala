@@ -110,5 +110,23 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("forall testcase"){
+    new TestSets {
+      val s = union(s1, s2)
+      assert(!forall(s, i => i > 2), "forall 1")
+      assert(!forall(s, i => i > 1), "forall 2")
+      assert(forall(s, i => i > 0), "forall 3")
+    }
+  }
+  test("exists testcase"){
+    new TestSets {
+      val s = union(s1, s2)
+      val t = union(s, s3)
+      assert(exists(t, i => i > 2), "exists 2")
+      assert(!exists(t, i => i > 3), "exists 3")
+      assert(exists(t, i => i > 1), "exists 1")
+      assert(exists(t, i => i > 0), "exists 0")
+    }
+  }
 
 }
