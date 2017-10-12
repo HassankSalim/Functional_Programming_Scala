@@ -12,5 +12,5 @@ object exercise
     }
 
     factorial(4)
-    factorial(5)
+
 }
