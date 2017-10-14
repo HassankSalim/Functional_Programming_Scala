@@ -1,5 +1,5 @@
 object intsets{
-    object Empty extends IntSet{
+    object Empty extends IntSet{ // object definition instead of class to make singleton class
         def incl(x: Int): IntSet = new NonEmpty(x, Empty, Empty)
 
         def contains(x: Int): Boolean = false
@@ -20,7 +20,7 @@ object intsets{
             else if(x > elem) right contains x
             else true
 
-        override def toString() = "{" + left + elem + right + "}"
+        override def toString() = "{" + left + elem + right + "} test"
 
         def union(other: IntSet): IntSet =
             ((left union right) union other) incl elem
@@ -34,7 +34,7 @@ object intsets{
 
     val t1 = new NonEmpty(3, Empty, Empty)
     val root = t1 incl 4
-    
+
 
 
 }

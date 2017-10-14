@@ -1,3 +1,4 @@
+
 object session {
 
     def abs(x: Double): Double = if (x < 0) -x else x
