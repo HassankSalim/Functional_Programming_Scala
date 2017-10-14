@@ -26,6 +26,11 @@ Table of contents
   7. Evaluation and Operators
   8. Assignment
 
+- [Week 3](https://www.coursera.org/learn/progfun1/home/week/3)
+  1. Class Hierarchies
+  2. How Classes Are Organized
+  3. Polymorphism
+
 Hurdles i faced :sweat_smile:
 ---------
 - Week 1
@@ -38,6 +43,8 @@ Hurdles i faced :sweat_smile:
     * [stackoverflow](https://stackoverflow.com/questions/19204631/union-of-two-sets-in-scala)
     * I prefer my exists functions over the one implemented here [Github](https://github.com/erlinis/scala-progfun-funsets/blob/master/src/main/scala/funsets/FunSets.scala)
 
+- Week 3
+  - User defined class should be compiled before importing this can be done by Click the play/run button
 
 > **Note:**
 > - This repo is to document my progress. It is intended help anyone with similar difficults and not intended to share answer.
