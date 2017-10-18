@@ -45,6 +45,9 @@ Hurdles i faced :sweat_smile:
 
 - Week 3
   - User defined class should be compiled before importing this can be done by Click the play/run button
+  - Efficient implementation of union is needed otherwise causes timeout, i had some help 
+    :sweat_smile: [Soln](https://coderwall.com/p/_akojq/scala-week-3)
+  - Define your own function if needed
 
 > **Note:**
 > - This repo is to document my progress. It is intended help anyone with similar difficults and not intended to share answer.
