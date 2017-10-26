@@ -30,6 +30,18 @@ Table of contents
   1. Class Hierarchies
   2. How Classes Are Organized
   3. Polymorphism
+  4. Assignment
+
+- [Week 4](https://www.coursera.org/learn/progfun1/home/week/4)
+  1. Objects Everywhere
+  2. Function as Objects
+  3. Subtyping and Generics
+  4. Variance
+  5. Decomposition
+  6. Pattern Matching
+  7. Lists
+  8. Assignment
+  
 
 Hurdles i faced :sweat_smile:
 ---------
@@ -50,5 +62,5 @@ Hurdles i faced :sweat_smile:
   - Define your own function if needed
 
 > **Note:**
-> - This repo is to document my progress. It is intended help anyone with similar difficults and not intended to share answer.
+> - This repo is to document of my progress. It is intended help anyone with similar difficults and not intended to share answer.
 > - I have given the table of contents same as the course page this is to increase awareness of the course.
