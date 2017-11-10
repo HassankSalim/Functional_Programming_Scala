@@ -29,7 +29,7 @@ object List{
   val x: List[String] = Nil
 //  def f(xs: List[NonEmpty], x: Empty) = xs prepend x
   def apply[T](x1: T, x2: T): List[T] = new Cons[T](x1, new Cons[T](x2, Nil))
-  def apply[T](x1: T, x2: T): List[T] = Nil
+//  def apply[T](x1: T, x2: T): List[T] = Nil
   def apply[T](x1: T): List[T] = new Cons[T](x1, Nil)
 }
 
