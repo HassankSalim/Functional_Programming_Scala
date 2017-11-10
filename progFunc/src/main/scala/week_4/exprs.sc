@@ -1,5 +1,5 @@
 import week_4.{Expr, Number, Sum}
-  
+
 object exprs {
 
   def eval(e: Expr): Int = e match {
