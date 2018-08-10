@@ -95,5 +95,7 @@ FirstScalaProject/
 ### Scala ###
 ./**/*.class
 ./**/*.log
+./**/*.sc
+patmat/src/main/scala/patmat/WorkSheet.sc
 
 # End of https://www.gitignore.io/api/scala
