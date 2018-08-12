@@ -134,7 +134,23 @@ object Huffman {
     * If `trees` is a list of less than two elements, that list should be returned
     * unchanged.
     */
-  def combine(trees: List[CodeTree]): List[CodeTree] = ???
+  def combine(trees: List[CodeTree]): List[CodeTree] = {
+
+    def insert(x: CodeTree, xs: List[CodeTree]): List[CodeTree] = xs match {
+      case List() => List(x)
+      case y::ys => if(weight(x) < weight(y)) x :: xs else y::insert(x, ys)
+    }
+
+
+    def combines(trees: List[CodeTree]): List[CodeTree] = trees match {
+      case left :: right :: tree => insert(makeCodeTree(left, right), tree)
+      case _ => trees
+    }
+
+    combines(trees)
+
+  }
+
 
   /**
     * This function will be called in the following way:
@@ -153,16 +169,19 @@ object Huffman {
     * the example invocation. Also define the return type of the `until` function.
     *  - try to find sensible parameter names for `xxx`, `yyy` and `zzz`.
     */
-  def until(xxx: ???, yyy: ???)(zzz: ???): ??? = ???
-
+  def until(conditionFunc: List[CodeTree] => Boolean, combineFunc: List[CodeTree] => List[CodeTree])(input: List[CodeTree]): List[CodeTree] = {
+    if(conditionFunc(input))
+      input
+    else
+      until(conditionFunc, combineFunc)(combineFunc(input))
+  }
   /**
     * This function creates a code tree which is optimal to encode the text `chars`.
     *
     * The parameter `chars` is an arbitrary text. This function extracts the character
     * frequencies from that text and creates a code tree based on them.
     */
-  def createCodeTree(chars: List[Char]): CodeTree = ???
-
+  def createCodeTree(chars: List[Char]): CodeTree = until(singleton, combine)(makeOrderedLeafList(times(chars))).head
 
   // Part 3: Decoding
 
