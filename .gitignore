@@ -97,5 +97,6 @@ FirstScalaProject/
 ./**/*.log
 ./**/*.sc
 patmat/src/main/scala/patmat/WorkSheet.sc
+forcomp/src/main/scala/forcomp/TestSheet.sc
 
 # End of https://www.gitignore.io/api/scala
